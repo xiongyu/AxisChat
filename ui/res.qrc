@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="/">
+    <file>resource/icon/error.png</file>
+    <file>resource/icon/right.png</file>
     <file>resource/button/chat.png</file>
     <file>resource/button/friend.png</file>
     <file>resource/button/group.png</file>

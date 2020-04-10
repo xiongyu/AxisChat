@@ -38,6 +38,7 @@ class CLoginView(QWidget, Ui_LoginWidget):
     def __init__(self):
         super().__init__()
         self.setupUi(self)   #执行类中的setupUi函数
+        self.setWindowTitle("AxisChat")
 
     def DisableUI(self, enable1):
         enable = not enable1
@@ -65,6 +66,7 @@ class CApplicationController:
         self.m_Timer.timeout.connect(self.Heartbeat)
         
     def Heartbeat(self):
+        print('HB')
         self.m_Timer.start(1000)
         self.m_HeartbeatTimes += 1
         if self.m_HeartbeatTimes >= 8:
@@ -169,7 +171,7 @@ class CApplicationView(CApplicationController):
 
     def Show(self):
         self.m_LoginUI.show()
-        self.m_ChatUI.show()
+        # self.m_ChatUI.show()
 
 if __name__=='__main__':
     logger.Init()

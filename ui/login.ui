@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>xyCode</author>
  <class>LoginWidget</class>
  <widget class="QWidget" name="LoginWidget">
   <property name="geometry">
@@ -118,7 +119,7 @@ background-color: rgb(255, 255, 255);
         <property name="sizeHint" stdset="0">
          <size>
           <width>30</width>
-          <height>20</height>
+          <height>17</height>
          </size>
         </property>
        </spacer>
@@ -270,7 +271,7 @@ background-color: rgb(255, 255, 255);
         <property name="sizeHint" stdset="0">
          <size>
           <width>30</width>
-          <height>20</height>
+          <height>17</height>
          </size>
         </property>
        </spacer>
@@ -284,4 +285,21 @@ background-color: rgb(255, 255, 255);
   <include location="res.qrc"/>
  </resources>
  <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>
