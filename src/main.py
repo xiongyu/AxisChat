@@ -1,11 +1,12 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QMessageBox, QListWidgetItem
 from PyQt5.QtNetwork import QTcpSocket
-from PyQt5.QtCore import QTimer
+from PyQt5.QtCore import QTimer, pyqtSignal
 from PyQt5 import QtCore
 
 from ui.ui_login import Ui_LoginWidget
 from ui.ui_chat import Ui_ChatWidget
 from ui.ui_frienditem import Ui_FriendItem
+from ui.ui_register import Ui_Register
 
 import sys
 sys.path.append('../common')
@@ -32,6 +33,58 @@ class CChatView(QWidget, Ui_ChatWidget):
     def __init__(self):
         super().__init__()
         self.setupUi(self)   #执行类中的setupUi函数
+
+class CRegisterView(QWidget, Ui_Register):
+    
+    OnRegister = pyqtSignal(str, str, name = 'OnRegister')
+
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)   #执行类中的setupUi函数
+        self.righticon.hide()
+        self.erroricon.hide()
+        self.registerButton.setEnabled(False)
+        self.userLineEdit.textChanged.connect(self.CheckInput)
+        self.passwordLineEdit.textChanged.connect(self.CheckInput)
+        self.comfirmLineEdit.textChanged.connect(self.CheckInput)
+        self.registerButton.clicked.connect(self.Register)
+
+    def CheckInput(self, txt):
+        print(txt)
+        pwd = self.passwordLineEdit.text()
+        cpwd = self.comfirmLineEdit.text()
+        if len(pwd) >= 8:
+            if len(cpwd) <= 0:
+                pass
+            else:
+                if pwd != cpwd and len(cpwd) > 0:
+                    self.righticon.hide()
+                    self.erroricon.show()
+                else:
+                    self.righticon.show()
+                    self.erroricon.hide()
+
+        user = self.userLineEdit.text()
+        if len(user) < 6:
+            self.registerButton.setEnabled(False)
+            return False
+        if len(pwd) < 8:
+            self.registerButton.setEnabled(False)
+            return False
+        if len(cpwd) < 8:
+            self.registerButton.setEnabled(False)
+            return False
+        if pwd != cpwd:
+            self.registerButton.setEnabled(False)
+            return False
+        self.registerButton.setEnabled(True)
+        return True
+
+    def Register(self):
+        sUser = self.userLineEdit.text()
+        sPassword = self.passwordLineEdit.text()
+        self.OnRegister(sUser, sPassword)
+        self.close()
 
 class CLoginView(QWidget, Ui_LoginWidget):
 
@@ -189,5 +242,8 @@ if __name__=='__main__':
 
     w.m_ChatUI.friendWIdget.setItemWidget(item, CFriendItem())
     w.m_ChatUI.friendWIdget.setItemWidget(item2, CFriendItem())
+
+    o = CRegisterView()
+    o.show()
 
     sys.exit(app.exec_())
