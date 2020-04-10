@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'frienditem.ui'
+# Form implementation generated from reading ui file 'd:/git/AxisChat/ui/frienditem.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -50,3 +50,13 @@ class Ui_FriendItem(object):
         FriendItem.setWindowTitle(_translate("FriendItem", "Form"))
         self.nameLabel.setText(_translate("FriendItem", "这是好友名字"))
 import res_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    FriendItem = QtWidgets.QWidget()
+    ui = Ui_FriendItem()
+    ui.setupUi(FriendItem)
+    FriendItem.show()
+    sys.exit(app.exec_())

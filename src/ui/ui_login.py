@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'login.ui'
+# Form implementation generated from reading ui file 'd:/git/AxisChat/ui/login.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -45,7 +45,7 @@ class Ui_LoginWidget(object):
         self.loginWidget.setObjectName("loginWidget")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.loginWidget)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        spacerItem = QtWidgets.QSpacerItem(30, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(30, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
         self.widget_3 = QtWidgets.QWidget(self.loginWidget)
         self.widget_3.setMinimumSize(QtCore.QSize(98, 98))
@@ -98,7 +98,7 @@ class Ui_LoginWidget(object):
         self.verticalLayout_5.addItem(spacerItem1)
         self.horizontalLayout_2.addLayout(self.verticalLayout_5)
         self.horizontalLayout_3.addWidget(self.widget_4)
-        spacerItem2 = QtWidgets.QSpacerItem(30, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(30, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem2)
         self.verticalLayout.addWidget(self.loginWidget)
 
@@ -114,3 +114,13 @@ class Ui_LoginWidget(object):
         self.autoLoginCheckBox.setText(_translate("LoginWidget", "自动登陆"))
         self.loginButton.setText(_translate("LoginWidget", "登陆"))
 import res_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    LoginWidget = QtWidgets.QWidget()
+    ui = Ui_LoginWidget()
+    ui.setupUi(LoginWidget)
+    LoginWidget.show()
+    sys.exit(app.exec_())

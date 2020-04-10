@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'chat.ui'
+# Form implementation generated from reading ui file 'd:/git/AxisChat/ui/chat.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -352,3 +352,13 @@ class Ui_ChatWidget(object):
         self.closeButton.setText(_translate("ChatWidget", "关闭"))
         self.sendButton.setText(_translate("ChatWidget", "发送"))
 import res_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    ChatWidget = QtWidgets.QWidget()
+    ui = Ui_ChatWidget()
+    ui.setupUi(ChatWidget)
+    ChatWidget.show()
+    sys.exit(app.exec_())
